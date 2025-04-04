@@ -41,11 +41,11 @@ const Index = () => {
   };
 
   const topSkills = [
+    { name: "Client Relationship Management", years: 24 },
     { name: "Client Onboarding Automation", years: 7 },
-    { name: "Process Automation", years: 6 },
-    { name: "AI-Enhanced Business Operations", years: 5 },
-    { name: "Client Relationship Management", years: 7 },
-    { name: "Business Coaching & Strategy", years: 7 }
+    { name: "Process Automation", years: 10 },
+    { name: "AI-Enhanced Business Operations", years: 1 },
+    { name: "Business Coaching & Strategy", years: 10 }
   ];
 
   const profile = `Driven and results-oriented professional passionate about empowering entrepreneurs. I leverage extensive experience in technology, automation, and business operations to design systems that enhance efficiency and drive client success. My expertise lies in implementing structured client onboarding, providing strategic coaching, and utilizing streamlined processes to help founders reclaim valuable time (saving clients 15+ hours weekly) and focus on scaling their ventures.
@@ -167,32 +167,138 @@ Deeply committed to the client journey, I excel at building strong, trust-based 
         "Digital Marketing & Lead Generation",
         "Client Project & Relationship Management"
       ]
+    },
+    {
+      title: "Emergency Management Trainer",
+      company: "Princess Margaret Hospital for Children",
+      location: "Perth, Australia",
+      period: "Sep 2016 - Mar 2017",
+      description: "Developed and delivered critical emergency preparedness training programs while coordinating project elements for a major hospital transition and commissioning.",
+      keyFocus: [
+        "Designed and delivered comprehensive emergency preparedness training (inductions, warden courses, practical drills) for up to 50 participants daily.",
+        "Managed project timelines, coordinated emergency drills, and developed procedural documentation (Visio diagrams, reports) supporting the hospital relocation.",
+        "Contributed to safety system integrity by identifying procedural/plan inconsistencies, auditing fire systems, and coordinating safety equipment rollouts."
+      ],
+      keySkills: [
+        "Training Program Development & Delivery",
+        "Project Coordination & Management",
+        "Emergency Procedures & Safety Systems"
+      ]
+    },
+    {
+      title: "Consultant",
+      company: "Pakfront Pty Ltd",
+      location: "Perth, Australia",
+      period: "Dec 2014 - Feb 2017",
+      description: "Executed comprehensive digital marketing campaigns and developed supporting operational assets including automated lead generation systems for clients.",
+      keyFocus: [
+        "Managed multi-platform digital marketing campaigns (social media focus) and developed tailored strategic marketing/sales plans.",
+        "Established automated sales funnels and lead generation systems to drive client acquisition efficiently.",
+        "Created brand designs, procedural documentation (templates, policies), and managed tender/license application packages."
+      ],
+      keySkills: [
+        "Digital Marketing & Strategy",
+        "Lead Generation & Sales Automation",
+        "Brand Development & Business Documentation"
+      ]
+    },
+    {
+      title: "Accounts Payable Officer",
+      company: "Sadliers Logistics",
+      location: "Perth, Australia",
+      period: "Jan 2016 - Feb 2016",
+      description: "Managed end-to-end accounts payable processes, focusing on accurate subcontractor job costing and timely payment execution within a logistics environment.",
+      keyFocus: [
+        "Processed and costed subcontractor jobs (metro/regional) using Translogix, ensuring accurate data entry and validation (fuel, charges).",
+        "Managed full-cycle accounts payable including invoice/PO creation, GL transactions, and weekly EFT payment runs (SPA processing).",
+        "Performed financial administration tasks such as updating subcontractor rates, adjusting accruals, and distributing payment advices."
+      ],
+      keySkills: [
+        "Accounts Payable Processing",
+        "Financial Data Entry & Verification",
+        "Attention to Detail & Accuracy"
+      ]
+    },
+    {
+      title: "Project Administrator",
+      company: "Tutt Bryant Heavy Lift & Shift",
+      location: "Perth, Australia",
+      period: "Nov 2012 - Dec 2015",
+      description: "Provided comprehensive project administration for multi-million dollar per month, high-end heavy lift projects within the mining and civil construction sectors, coordinating across multiple functions and contributing to key system implementations.",
+      keyFocus: [
+        "Led the rollout of a SharePoint-based document control system across all Australian branches and contributed significantly to a new ERP system implementation supporting large-scale projects.",
+        "Managed core project financial administration including invoicing, purchase orders, AP/AR processing, progress billing, and timesheet/payroll entry for complex, high-value operations.",
+        "Coordinated essential project support functions: job creation/closure, record keeping (training, OHS), travel/accommodation logistics, and tender package review in a high-pressure environment."
+      ],
+      keySkills: [
+        "Project Administration & Coordination (Large-Scale Construction)",
+        "System Implementation Support (ERP & SharePoint/Document Control)",
+        "Financial & Operational Administration (High-Value Projects)"
+      ]
+    },
+    {
+      title: "Jesus Follower",
+      company: "The Kingdom of God",
+      location: "Heaven (Remote)",
+      period: "Aug 2012",
+      description: "For God so loved the world, that he gave his only Son, that whoever believes in him should not perish but have eternal life. (John 3:16)",
+      keyFocus: [],
+      keySkills: []
+    },
+    {
+      title: "Project, HR, and Contract Administrator",
+      company: "Various Companies",
+      location: "Perth, Australia",
+      period: "Aug 2009 - Jul 2012",
+      description: "Provided multifaceted administrative support across diverse sectors (mining, construction, health, corporate), driving efficiency in project delivery, HR processes, and contract management.",
+      keyFocus: [
+        "Coordinated logistics and scheduling for over 60 concurrent live projects, managing timelines and assisting with project management system integrations and testing.",
+        "Managed end-to-end contract administration, including subcontractor/vendor liaison, negotiation support, procurement, and expenditure tracking.",
+        "Delivered comprehensive HR administrative support encompassing recruitment, onboarding, training coordination, payroll processing, and HSE compliance."
+      ],
+      keySkills: [
+        "Cross-Functional Administration (Project, HR, Contracts)",
+        "Project Coordination & Logistics",
+        "Contract & Vendor Management"
+      ]
+    },
+    {
+      title: "Marketing Consultant and Branch Administration Manager",
+      company: "Various Companies",
+      location: "Perth, Australia",
+      period: "Sep 2003 - Jul 2009",
+      description: "Held diverse, concurrent roles over six years, developing comprehensive expertise in marketing, lead generation, branch/site administration, and team leadership across various environments (including remote site work, Fly-in Fly-out--FIFO).",
+      keyFocus: [
+        "Spearheaded marketing/advertising campaigns, managed lead generation processes, and designed websites to drive business growth.",
+        "Managed broad administrative functions including branch operations, HR tasks (payroll, compliance, policy), audits, and travel/logistics coordination.",
+        "Provided site administration support (FIFO) and team leadership, including training new associates and ensuring smooth operations."
+      ],
+      keySkills: [
+        "Marketing Strategy & Execution",
+        "Operations & Administration Management",
+        "Team Leadership & Training"
+      ]
     }
   ];
 
   const languages = ["Afrikaans", "English"];
   
   const additionalSkills = [
-    "Client Relationship Management",
-    "Business Coaching & Strategy",
-    "Client Onboarding Automation",
-    "Process Optimization & Improvement",
-    "Cross-Functional Collaboration & Communication",
-    "Client Support Management",
-    "System Implementation & Administration",
-    "Process Automation",
-    "AI-Enhanced Business Operations",
-    "Software Development Life Cycle (SDLC)",
-    "Training Development & Delivery",
-    "Strategic Product Management",
-    "Technology Leadership & Oversight",
-    "Remote Operations Management",
-    "Digital Marketing & Lead Generation",
-    "Project Coordination & Management",
-    "Marketing Strategy & Execution",
-    "Team Leadership & Training",
-    "Operations & Administration Management",
-    "Technical Project Management"
+    { name: "Process Optimization & Improvement", years: 10 },
+    { name: "Cross-Functional Collaboration & Communication", years: 15 },
+    { name: "Client Support Management", years: 20 },
+    { name: "System Implementation & Administration", years: 12 },
+    { name: "Software Development Life Cycle (SDLC)", years: 5 },
+    { name: "Training Development & Delivery", years: 7 },
+    { name: "Strategic Product Management", years: 7 },
+    { name: "Technology Leadership & Oversight", years: 7 },
+    { name: "Remote Operations Management", years: 7 },
+    { name: "Digital Marketing & Lead Generation", years: 10 },
+    { name: "Project Coordination & Management", years: 12 },
+    { name: "Marketing Strategy & Execution", years: 15 },
+    { name: "Team Leadership & Training", years: 15 },
+    { name: "Operations & Administration Management", years: 15 },
+    { name: "Technical Project Management", years: 7 }
   ];
 
   const hobbies = ["Hiking", "Fishing", "Wild Camping"];
@@ -234,7 +340,7 @@ Deeply committed to the client journey, I excel at building strong, trust-based 
           <Header 
             name="Jodine Theron" 
             title="I transform client journeys into growth engines | Results-driven onboarding, delivery systems & SOP automation that save you 15+ hours weekly | AI enthusiast | Tech-savvy problem solver | Jesus-loving entrepreneur" 
-            imageSrc="/lovable-uploads/a8d696f2-1775-41fd-b48f-9946dc92f588.png"
+            imageSrc="/lovable-uploads/e5c33ee4-fc17-438d-a9e2-ef6f49aedcd2.jpg"
             onDownload={handleDownload} 
           />
           
@@ -249,7 +355,7 @@ Deeply committed to the client journey, I excel at building strong, trust-based 
             
             <div className="md:col-span-2 space-y-8">
               <ProfileSection profile={profile} />
-              <SkillsList skills={additionalSkills} title="Top Skills" />
+              <SkillsList skills={additionalSkills} title="Key Skills" />
               <EducationSection education={education} />
               <ExperienceSection experiences={experiences} />
               <ReferencesSection references={references} />

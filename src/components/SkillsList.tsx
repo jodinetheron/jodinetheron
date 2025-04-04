@@ -1,6 +1,6 @@
 
 interface SkillsListProps {
-  skills: string[];
+  skills: Array<{ name: string; years?: number }>;
   title?: string;
 }
 
@@ -14,7 +14,7 @@ const SkillsList = ({ skills, title = "Additional Skills" }: SkillsListProps) =>
             key={index} 
             className="bg-gradient-to-r from-cv-purple/10 to-cv-blue/10 text-gray-300 px-3 py-1 rounded-full border border-cv-purple/20"
           >
-            {skill}
+            {skill.name} {skill.years ? `(${skill.years} ${skill.years === 1 ? 'year' : 'years'})` : ''}
           </span>
         ))}
       </div>
