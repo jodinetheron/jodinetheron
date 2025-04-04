@@ -11,7 +11,7 @@ interface SkillsChartProps {
   maxYears?: number;
 }
 
-const SkillsChart = ({ skills, maxYears = 10 }: SkillsChartProps) => {
+const SkillsChart = ({ skills, maxYears = 24 }: SkillsChartProps) => {
   const [animate, setAnimate] = useState(false);
   
   useEffect(() => {
@@ -21,7 +21,7 @@ const SkillsChart = ({ skills, maxYears = 10 }: SkillsChartProps) => {
 
   return (
     <div className="cv-section" style={{ "--delay": "3" } as React.CSSProperties}>
-      <h2 className="cv-section-title">Top Skills</h2>
+      <h2 className="cv-section-title">Key Skills</h2>
       <div className="space-y-4">
         {skills.map((skill, index) => {
           const percentage = (skill.years / maxYears) * 100;
@@ -32,14 +32,17 @@ const SkillsChart = ({ skills, maxYears = 10 }: SkillsChartProps) => {
                 <span className="text-gray-300">{skill.name}</span>
                 <span className="text-cv-purple">{skill.years} years</span>
               </div>
-              <div className="bg-muted/20 rounded-full h-4 overflow-hidden">
-                <div 
-                  className="skill-bar transition-all duration-1000 ease-out"
-                  style={{ 
-                    width: animate ? `${percentage}%` : "0%",
-                    transitionDelay: `${index * 100}ms`
-                  }}
-                ></div>
+              <div className="bg-muted/20 rounded-full h-4 overflow-hidden flex">
+                {Array.from({ length: maxYears }).map((_, i) => (
+                  <div 
+                    key={i} 
+                    className={`h-full flex-1 border-r border-muted/10 ${i < skill.years ? 'skill-segment' : ''}`}
+                    style={{ 
+                      opacity: animate ? 1 : 0,
+                      transition: `opacity 500ms ease-out ${index * 100 + i * 20}ms`
+                    }}
+                  />
+                ))}
               </div>
             </div>
           );

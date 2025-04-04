@@ -84,6 +84,10 @@
     @apply h-4 rounded-full bg-gradient-to-r from-cv-purple to-cv-blue relative overflow-hidden;
   }
 
+  .skill-segment {
+    @apply bg-gradient-to-r from-cv-purple to-cv-blue;
+  }
+
   @media print {
     body {
       -webkit-print-color-adjust: exact !important;

@@ -1,4 +1,3 @@
-
 import { useRef } from "react";
 import Header from "@/components/Header";
 import PersonalDetails from "@/components/PersonalDetails";
@@ -40,7 +39,7 @@ const Index = () => {
     ]
   };
 
-  const topSkills = [
+  const keySkills = [
     { name: "Client Relationship Management", years: 24 },
     { name: "Client Onboarding Automation", years: 7 },
     { name: "Process Automation", years: 10 },
@@ -283,22 +282,22 @@ Deeply committed to the client journey, I excel at building strong, trust-based 
 
   const languages = ["Afrikaans", "English"];
   
-  const additionalSkills = [
-    { name: "Process Optimization & Improvement", years: 10 },
-    { name: "Cross-Functional Collaboration & Communication", years: 15 },
-    { name: "Client Support Management", years: 20 },
-    { name: "System Implementation & Administration", years: 12 },
-    { name: "Software Development Life Cycle (SDLC)", years: 5 },
-    { name: "Training Development & Delivery", years: 7 },
-    { name: "Strategic Product Management", years: 7 },
-    { name: "Technology Leadership & Oversight", years: 7 },
-    { name: "Remote Operations Management", years: 7 },
-    { name: "Digital Marketing & Lead Generation", years: 10 },
-    { name: "Project Coordination & Management", years: 12 },
-    { name: "Marketing Strategy & Execution", years: 15 },
-    { name: "Team Leadership & Training", years: 15 },
-    { name: "Operations & Administration Management", years: 15 },
-    { name: "Technical Project Management", years: 7 }
+  const topSkills = [
+    { name: "Process Optimization & Improvement" },
+    { name: "Cross-Functional Collaboration & Communication" },
+    { name: "Client Support Management" },
+    { name: "System Implementation & Administration" },
+    { name: "Software Development Life Cycle (SDLC)" },
+    { name: "Training Development & Delivery" },
+    { name: "Strategic Product Management" },
+    { name: "Technology Leadership & Oversight" },
+    { name: "Remote Operations Management" },
+    { name: "Digital Marketing & Lead Generation" },
+    { name: "Project Coordination & Management" },
+    { name: "Marketing Strategy & Execution" },
+    { name: "Team Leadership & Training" },
+    { name: "Operations & Administration Management" },
+    { name: "Technical Project Management" }
   ];
 
   const hobbies = ["Hiking", "Fishing", "Wild Camping"];
@@ -347,7 +346,7 @@ Deeply committed to the client journey, I excel at building strong, trust-based 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
             <div className="md:col-span-1 space-y-8">
               <PersonalDetails details={personalDetails} />
-              <SkillsChart skills={topSkills} />
+              <SkillsChart skills={keySkills} maxYears={24} />
               <LanguagesSection languages={languages} />
               <KeyFocusSection items={keyFocus} />
               <HobbiesSection hobbies={hobbies} />
@@ -355,7 +354,7 @@ Deeply committed to the client journey, I excel at building strong, trust-based 
             
             <div className="md:col-span-2 space-y-8">
               <ProfileSection profile={profile} />
-              <SkillsList skills={additionalSkills} title="Key Skills" />
+              <SkillsList skills={topSkills} title="Top Skills" showYears={false} />
               <EducationSection education={education} />
               <ExperienceSection experiences={experiences} />
               <ReferencesSection references={references} />
