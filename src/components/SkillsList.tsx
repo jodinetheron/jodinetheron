@@ -5,7 +5,7 @@ interface SkillsListProps {
   showYears?: boolean;
 }
 
-const SkillsList = ({ skills, title = "Additional Skills", showYears = true }: SkillsListProps) => {
+const SkillsList = ({ skills, title = "Key Skills", showYears = true }: SkillsListProps) => {
   return (
     <div className="cv-section" style={{ "--delay": "10" } as React.CSSProperties}>
       <h2 className="cv-section-title">{title}</h2>
