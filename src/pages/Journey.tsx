@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from "react";
 import { Construction, Plus, Pencil, Trash2, Check, Edit2, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -16,7 +15,6 @@ import { toast } from "sonner";
 import Footer from "@/components/Footer";
 import useStarCursor from "@/hooks/useStarCursor";
 
-// Define the journey card schema
 const journeyCardSchema = z.object({
   timeline: z.string().min(1, { message: "Timeline is required." }),
   title: z.string().min(2, { message: "Title is required." }),
@@ -27,7 +25,6 @@ const journeyCardSchema = z.object({
 
 type JourneyCard = z.infer<typeof journeyCardSchema>;
 
-// Initial journey cards data
 const initialJourneyCards: JourneyCard[] = [
   {
     timeline: "1998",
@@ -109,7 +106,6 @@ const initialJourneyCards: JourneyCard[] = [
 ];
 
 const Journey = () => {
-  // Apply star cursor effect
   useStarCursor();
   
   const [journeyCards, setJourneyCards] = useState<JourneyCard[]>(initialJourneyCards);
@@ -121,7 +117,6 @@ const Journey = () => {
   const [deleteIndex, setDeleteIndex] = useState<number | null>(null);
   const timelineRef = useRef<HTMLDivElement>(null);
   
-  // Form
   const form = useForm<JourneyCard>({
     resolver: zodResolver(journeyCardSchema),
     defaultValues: {
@@ -133,15 +128,12 @@ const Journey = () => {
     },
   });
 
-  // Sort journey cards by timeline
   const sortedJourneyCards = [...journeyCards].sort((a, b) => {
-    // Extract the first year from timeline if it's a range (e.g., "2000-2007" becomes "2000")
     const yearA = parseInt(a.timeline.split('-')[0].split(' ')[0].split('(')[0]);
     const yearB = parseInt(b.timeline.split('-')[0].split(' ')[0].split('(')[0]);
     return yearA - yearB;
   });
 
-  // Handle password authentication
   const handlePasswordSubmit = () => {
     if (password === "Je5u$isK!ng") {
       setIsAuthenticated(true);
@@ -152,16 +144,13 @@ const Journey = () => {
     }
   };
 
-  // Handle add/edit journey card
   const onSubmit = (data: JourneyCard) => {
     if (editingId !== null) {
-      // Edit existing card
       const updatedJourneyCards = [...journeyCards];
       updatedJourneyCards[editingId] = data;
       setJourneyCards(updatedJourneyCards);
       toast.success("Journey card updated successfully!");
     } else {
-      // Add new card
       setJourneyCards([...journeyCards, data]);
       toast.success("Journey card added successfully!");
     }
@@ -171,14 +160,12 @@ const Journey = () => {
     form.reset();
   };
 
-  // Handle edit button click
   const handleEdit = (index: number) => {
     setEditingId(index);
     form.reset(journeyCards[index]);
     setShowAddDialog(true);
   };
 
-  // Handle delete confirmation
   const handleDelete = (index: number) => {
     const updatedJourneyCards = [...journeyCards];
     updatedJourneyCards.splice(index, 1);
@@ -187,20 +174,29 @@ const Journey = () => {
     toast.success("Journey card deleted successfully!");
   };
 
-  // Prepare delete handler
   const confirmDelete = (index: number) => {
     setDeleteIndex(index);
   };
-  
-  // Scroll to timeline section
+
   const scrollToTimeline = () => {
     timelineRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleAddNewCard = () => {
+    form.reset({
+      timeline: "",
+      title: "",
+      description: "",
+      quote: "",
+      imageUrl: "",
+    });
+    setEditingId(null);
+    setShowAddDialog(true);
   };
 
   return (
     <div className="min-h-screen flex flex-col">
       <div className="flex-grow container mx-auto px-4 py-12 max-w-5xl">
-        {/* Hero Section */}
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold gradient-text mb-4">The Transformation: How a Mole Became a Moth</h1>
           <h2 className="text-xl md:text-2xl text-gray-300 mb-8">My journey from digging in the entrepreneurial trenches to being drawn to the light of AAA Accelerator</h2>
@@ -217,25 +213,30 @@ const Journey = () => {
           </Button>
         </div>
         
-        {/* Timeline Section */}
         <div ref={timelineRef} className="mb-24">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold gradient-text mb-2">My Transformation Timeline</h2>
             <p className="text-gray-300">Follow my journey from underground tunnels to open skies, from mole to moth</p>
+            
+            {isAuthenticated && (
+              <Button 
+                onClick={handleAddNewCard}
+                className="mt-4 bg-cv-purple hover:bg-cv-purple-dark"
+              >
+                <Plus className="mr-2 h-4 w-4" />
+                Add Timeline Card
+              </Button>
+            )}
           </div>
           
           <div className="relative">
-            {/* Timeline line */}
             <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-cv-purple to-cv-blue opacity-30"></div>
             
-            {/* Timeline cards */}
             <div className="space-y-16">
               {sortedJourneyCards.map((card, index) => (
                 <div key={index} className={`relative ${index % 2 === 0 ? 'md:ml-auto md:mr-[50%] md:pr-12' : 'md:mr-auto md:ml-[50%] md:pl-12'} md:w-[calc(50%-20px)] animate-fade-in opacity-0`} style={{ animationDelay: `${index * 0.1}s` }}>
-                  {/* Timeline dot */}
                   <div className="absolute top-0 md:top-8 left-1/2 md:left-auto md:right-0 transform translate-x(-50%) md:translate-x(50%) w-6 h-6 rounded-full bg-cv-purple shadow-glow"></div>
                   
-                  {/* Year label */}
                   <div className={`mb-4 md:mb-0 md:absolute md:top-8 md:right-0 md:left-auto transform md:translate-x-[calc(100%+20px)] ${index % 2 === 0 ? 'md:-translate-x-[calc(100%+20px)] md:right-auto md:left-0 text-right' : 'text-left'}`}>
                     <span className="inline-block bg-cv-dark/80 border border-cv-purple/20 rounded-full px-4 py-2 text-sm font-bold text-cv-purple shadow-glow">
                       {card.timeline}
@@ -293,7 +294,6 @@ const Journey = () => {
           </div>
         </div>
         
-        {/* Why This Moth Section */}
         <div className="mb-24">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold gradient-text mb-2">Why This Moth is Your Ideal Success Manager</h2>
@@ -339,7 +339,6 @@ const Journey = () => {
           </div>
         </div>
         
-        {/* The Proof is in the Pudding Section */}
         <div className="mb-24">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold gradient-text mb-2">The Proof is in the Pudding</h2>
@@ -362,7 +361,6 @@ const Journey = () => {
           </div>
         </div>
         
-        {/* Life is an Adventure Section */}
         <div className="mb-16">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold gradient-text mb-2">Life is an Adventure</h2>
@@ -388,14 +386,28 @@ const Journey = () => {
       
       <Footer />
       
-      {/* Admin Controls - Only visible when authenticated */}
       {isAuthenticated ? (
-        <div className="fixed bottom-8 right-8">
+        <div className="fixed bottom-8 right-8 space-y-4">
           <HoverCard>
             <HoverCardTrigger asChild>
               <Button
                 size="icon"
                 className="h-14 w-14 rounded-full bg-cv-purple hover:bg-cv-purple-dark shadow-lg" 
+                onClick={handleAddNewCard}
+              >
+                <Plus size={24} />
+              </Button>
+            </HoverCardTrigger>
+            <HoverCardContent className="w-auto p-2">
+              <span className="text-xs">Add new card</span>
+            </HoverCardContent>
+          </HoverCard>
+          
+          <HoverCard>
+            <HoverCardTrigger asChild>
+              <Button
+                size="icon"
+                className="h-14 w-14 rounded-full bg-green-600 hover:bg-green-700 shadow-lg" 
                 onClick={() => {
                   setIsAuthenticated(false);
                   toast.success("Exited edit mode");
@@ -418,7 +430,7 @@ const Journey = () => {
                 className="h-14 w-14 rounded-full bg-cv-purple hover:bg-cv-purple-dark shadow-lg" 
                 onClick={() => setShowPasswordDialog(true)}
               >
-                <Plus size={24} />
+                <Edit2 size={24} />
               </Button>
             </HoverCardTrigger>
             <HoverCardContent className="w-auto p-2">
@@ -428,7 +440,6 @@ const Journey = () => {
         </div>
       )}
       
-      {/* Password Dialog */}
       <Dialog open={showPasswordDialog} onOpenChange={setShowPasswordDialog}>
         <DialogContent>
           <DialogHeader>
@@ -453,23 +464,17 @@ const Journey = () => {
           </div>
           
           <DialogFooter>
-            <Button 
-              variant="outline" 
-              onClick={() => setShowPasswordDialog(false)}
-            >
-              Cancel
-            </Button>
-            <Button 
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction 
               onClick={handlePasswordSubmit}
               className="bg-cv-purple hover:bg-cv-purple-dark"
             >
               Unlock
-            </Button>
+            </AlertDialogAction>
           </DialogFooter>
         </DialogContent>
       </Dialog>
       
-      {/* Add/Edit Journey Card Dialog */}
       <Dialog open={showAddDialog} onOpenChange={setShowAddDialog}>
         <DialogContent className="sm:max-w-[600px]">
           <DialogHeader>
@@ -573,7 +578,6 @@ const Journey = () => {
         </DialogContent>
       </Dialog>
       
-      {/* Delete Confirmation Dialog */}
       <AlertDialog open={deleteIndex !== null} onOpenChange={(open) => !open && setDeleteIndex(null)}>
         <AlertDialogContent>
           <AlertDialogHeader>

@@ -1,7 +1,6 @@
 
 import { useState } from "react";
 import { Download } from "lucide-react";
-import html2pdf from 'html2pdf.js';
 import Header from "@/components/Header";
 import ProfileSection from "@/components/ProfileSection";
 import KeyFocusSection from "@/components/KeyFocusSection";
@@ -68,6 +67,10 @@ const experiences = [
     title: "Chief Product & Technology Officer",
     company: "Kingdom Growth Engine",
     period: "2023 - Present",
+    location: "Remote",
+    description: "Leading product strategy and technical implementation for a faith-based SaaS platform",
+    keyFocus: ["Product Strategy", "No-Code Development", "System Architecture", "Team Leadership"],
+    keySkills: ["Bubble.io", "Make.com", "API Integration", "UI/UX", "Process Design"],
     achievements: [
       "Led the technical strategy and implementation of the company's no-code SaaS platform",
       "Designed and developed complex workflows and automations using Bubble.io, Make.com, and various APIs",
@@ -79,6 +82,10 @@ const experiences = [
     title: "Consultant & Systems Architect",
     company: "The Scalable Consultant",
     period: "2019 - 2023",
+    location: "Remote",
+    description: "Provided strategic system design and automation for service-based businesses",
+    keyFocus: ["System Design", "Process Automation", "Workflow Optimization", "Client Success"],
+    keySkills: ["Zapier", "Airtable", "Notion", "Typeform", "Process Mapping"],
     achievements: [
       "Provided strategic system design and automation solutions for service-based businesses",
       "Developed custom client management and workflow systems using no-code tools",
@@ -160,22 +167,10 @@ const CVpage = () => {
   // Function to generate PDF
   const handleDownloadPDF = () => {
     setIsDownloading(true);
-    const element = document.getElementById('cv-container');
-    const opt = {
-      margin: [10, 10],
-      filename: 'jodine-theron-cv.pdf',
-      image: { type: 'jpeg', quality: 0.98 },
-      html2canvas: { scale: 2, useCORS: true },
-      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-    };
-
-    // Add a class to indicate PDF generation mode
-    document.body.classList.add('generating-pdf');
-
-    html2pdf().set(opt).from(element).save().then(() => {
-      document.body.classList.remove('generating-pdf');
-      setIsDownloading(false);
-    });
+    
+    // Use browser print functionality as a fallback since html2pdf.js requires additional setup
+    window.print();
+    setIsDownloading(false);
   };
 
   return (

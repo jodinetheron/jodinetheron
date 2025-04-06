@@ -6,9 +6,13 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ExternalLink, FileText, Heart, Mic, Users } from "lucide-react";
 import Footer from "@/components/Footer";
+import useStarCursor from "@/hooks/useStarCursor";
 
 const Home = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
+  
+  // Apply star cursor effect
+  useStarCursor();
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -34,7 +38,7 @@ const Home = () => {
 
           {/* Buttons Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <Card className="group overflow-hidden transition-all bg-card/50 backdrop-blur-sm border border-cv-purple/20 hover:border-cv-purple/40">
+            <Card className="group overflow-hidden transition-all bg-card/50 backdrop-blur-sm border border-cv-purple/20 hover:border-cv-purple/40 hover:shadow-[0_0_15px_rgba(155,135,245,0.3)]">
               <a 
                 href="https://www.thescalableconsultant.com" 
                 target="_blank" 
@@ -51,7 +55,7 @@ const Home = () => {
               </a>
             </Card>
 
-            <Card className="group overflow-hidden transition-all bg-card/50 backdrop-blur-sm border border-cv-purple/20 hover:border-cv-purple/40">
+            <Card className="group overflow-hidden transition-all bg-card/50 backdrop-blur-sm border border-cv-purple/20 hover:border-cv-purple/40 hover:shadow-[0_0_15px_rgba(155,135,245,0.3)]">
               <a 
                 href="https://www.linkedin.com/in/jodinetheron/" 
                 target="_blank" 
@@ -68,7 +72,7 @@ const Home = () => {
               </a>
             </Card>
 
-            <Card className="group overflow-hidden transition-all bg-card/50 backdrop-blur-sm border border-cv-purple/20 hover:border-cv-purple/40">
+            <Card className="group overflow-hidden transition-all bg-card/50 backdrop-blur-sm border border-cv-purple/20 hover:border-cv-purple/40 hover:shadow-[0_0_15px_rgba(155,135,245,0.3)]">
               <a 
                 href="https://kingdomgrowthengine.idevaffiliate.com/116.html" 
                 target="_blank" 
@@ -85,7 +89,7 @@ const Home = () => {
               </a>
             </Card>
 
-            <Card className="group overflow-hidden transition-all bg-card/50 backdrop-blur-sm border border-cv-purple/20 hover:border-cv-purple/40">
+            <Card className="group overflow-hidden transition-all bg-card/50 backdrop-blur-sm border border-cv-purple/20 hover:border-cv-purple/40 hover:shadow-[0_0_15px_rgba(155,135,245,0.3)]">
               <Link 
                 to="/wall-of-love"
                 className="p-6 h-full flex flex-col"
@@ -100,7 +104,7 @@ const Home = () => {
               </Link>
             </Card>
 
-            <Card className="group col-span-1 md:col-span-2 overflow-hidden transition-all bg-gradient-to-r from-cv-purple/10 to-cv-blue/10 border border-cv-purple/20 hover:border-cv-purple/40">
+            <Card className="group col-span-1 md:col-span-2 overflow-hidden transition-all bg-gradient-to-r from-cv-purple/10 to-cv-blue/10 border border-cv-purple/20 hover:border-cv-purple/40 hover:shadow-[0_0_15px_rgba(155,135,245,0.3)]">
               <Link 
                 to="/cv"
                 className="p-6 flex items-center justify-between"
