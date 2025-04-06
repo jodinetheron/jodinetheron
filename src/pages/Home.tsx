@@ -5,6 +5,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ExternalLink, FileText, Heart, Mic, Users } from "lucide-react";
+import Footer from "@/components/Footer";
 
 const Home = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -115,25 +116,7 @@ const Home = () => {
         </div>
       </main>
 
-      <footer className="py-8 border-t border-muted/20 mt-12">
-        <div className="container mx-auto px-4 max-w-3xl">
-          <div className="text-center space-y-2">
-            <p className="font-medium gradient-text">Jodine Theron</p>
-            <p className="text-gray-400 text-sm">ABN 44 819 427 569</p>
-            <p className="text-gray-400 text-sm">hey@jodinetheron.com</p>
-            <p className="text-gray-400 text-sm">Regent Street, Mount Lawley, WA 6050 Australia</p>
-            <div className="pt-4">
-              <Link 
-                to="/journey" 
-                className="text-cv-purple hover:text-cv-purple-dark transition-colors text-sm inline-flex items-center"
-              >
-                <span>The Journey</span>
-                <Mic className="ml-1 h-3 w-3" />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
