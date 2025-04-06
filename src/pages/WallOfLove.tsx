@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -7,12 +8,13 @@ import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, D
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
-import { Plus, Pencil, Trash2, Key, Eye, Youtube, MessageSquare } from "lucide-react";
+import { Plus, Pencil, Trash2, Key, Eye, Youtube, MessageSquare, Image, Check } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
 import Footer from "@/components/Footer";
+import useStarCursor from "@/hooks/useStarCursor";
 
 // Define the testimonial schema
 const testimonialSchema = z.object({
@@ -20,7 +22,7 @@ const testimonialSchema = z.object({
   title: z.string().min(2, { message: "Title is required." }),
   company: z.string().min(2, { message: "Company is required." }),
   country: z.string().min(2, { message: "Country is required." }),
-  type: z.enum(["video", "text"]),
+  type: z.enum(["video", "text", "image"]),
   content: z.string().min(2, { message: "Content is required." }),
   imageUrl: z.string().optional(),
 });
@@ -55,10 +57,22 @@ const initialTestimonials: Testimonial[] = [
     type: "text",
     content: "Jodine's strategic guidance helped us restructure our entire operations model. We're now able to serve 30% more beneficiaries while actually reducing our overhead costs. I can't recommend her services enough!",
     imageUrl: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&auto=format&fit=crop",
+  },
+  {
+    name: "Alex Thompson",
+    title: "Creative Director",
+    company: "Design Collective",
+    country: "United Kingdom",
+    type: "image",
+    content: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&auto=format&fit=crop",
+    imageUrl: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&auto=format&fit=crop",
   }
 ];
 
 const WallOfLove = () => {
+  // Apply star cursor effect
+  useStarCursor();
+  
   const [testimonials, setTestimonials] = useState<Testimonial[]>(initialTestimonials);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [password, setPassword] = useState("");
@@ -80,107 +94,6 @@ const WallOfLove = () => {
       imageUrl: "",
     },
   });
-
-  // Star cursor effect
-  useEffect(() => {
-    // Create star cursor styles
-    const style = document.createElement('style');
-    style.textContent = `
-      .star-cursor {
-        cursor: none;
-      }
-      .cursor-star {
-        pointer-events: none;
-        position: fixed;
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-        background: radial-gradient(circle, rgba(155, 135, 245, 1) 0%, rgba(155, 135, 245, 0.8) 50%, rgba(155, 135, 245, 0) 100%);
-        transform: translate(-50%, -50%);
-        z-index: 9999;
-        mix-blend-mode: screen;
-        box-shadow: 0 0 10px 2px rgba(155, 135, 245, 0.7);
-      }
-      .cursor-trail {
-        pointer-events: none;
-        position: fixed;
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        background: rgba(155, 135, 245, 0.7);
-        transform: translate(-50%, -50%);
-        z-index: 9998;
-        mix-blend-mode: screen;
-        transition: width 0.2s, height 0.2s, opacity 0.5s;
-      }
-    `;
-    document.head.appendChild(style);
-
-    // Create star cursor elements
-    const cursor = document.createElement('div');
-    cursor.classList.add('cursor-star');
-    document.body.appendChild(cursor);
-
-    // Create trail elements
-    const trails: HTMLDivElement[] = [];
-    const trailCount = 12;
-    for (let i = 0; i < trailCount; i++) {
-      const trail = document.createElement('div');
-      trail.classList.add('cursor-trail');
-      document.body.appendChild(trail);
-      trails.push(trail);
-    }
-
-    // Add body class
-    document.body.classList.add('star-cursor');
-
-    // Trail animation variables
-    let mouseX = 0;
-    let mouseY = 0;
-    const trailPositions: { x: number, y: number }[] = Array(trailCount).fill({ x: 0, y: 0 });
-
-    // Update cursor and trails
-    const updateMousePosition = (e: MouseEvent) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-      cursor.style.left = `${mouseX}px`;
-      cursor.style.top = `${mouseY}px`;
-    };
-
-    // Animation loop for trails
-    const animateTrails = () => {
-      // Update trail positions
-      for (let i = trails.length - 1; i > 0; i--) {
-        trailPositions[i] = { ...trailPositions[i-1] };
-      }
-      trailPositions[0] = { x: mouseX, y: mouseY };
-
-      // Apply positions to trail elements
-      trails.forEach((trail, index) => {
-        const position = trailPositions[index];
-        trail.style.left = `${position.x}px`;
-        trail.style.top = `${position.y}px`;
-        trail.style.opacity = `${1 - index / trails.length}`;
-        trail.style.width = `${6 * (1 - index / trails.length)}px`;
-        trail.style.height = `${6 * (1 - index / trails.length)}px`;
-      });
-
-      requestAnimationFrame(animateTrails);
-    };
-
-    // Add event listeners
-    document.addEventListener('mousemove', updateMousePosition);
-    animateTrails();
-
-    // Clean up
-    return () => {
-      document.removeEventListener('mousemove', updateMousePosition);
-      document.body.classList.remove('star-cursor');
-      cursor.remove();
-      trails.forEach(trail => trail.remove());
-      document.head.removeChild(style);
-    };
-  }, []);
 
   // Handle password authentication
   const handlePasswordSubmit = () => {
@@ -328,7 +241,7 @@ const WallOfLove = () => {
                       <MessageSquare size={16} className="text-cv-purple mb-2 inline-block mr-2" />
                       {testimonial.content}
                     </div>
-                  ) : (
+                  ) : testimonial.type === 'video' ? (
                     <div className="bg-gradient-to-r from-cv-purple/5 to-cv-blue/5 p-4 rounded-md overflow-hidden">
                       <div className="relative pb-2 mb-2">
                         <Youtube size={16} className="text-cv-purple mb-2 inline-block" />
@@ -338,14 +251,47 @@ const WallOfLove = () => {
                         dangerouslySetInnerHTML={{ __html: testimonial.content }}
                       />
                     </div>
+                  ) : (
+                    <div className="bg-gradient-to-r from-cv-purple/5 to-cv-blue/5 p-4 rounded-md overflow-hidden">
+                      <div className="relative pb-2 mb-2">
+                        <Image size={16} className="text-cv-purple mb-2 inline-block" />
+                      </div>
+                      <div className="overflow-hidden rounded-md">
+                        <img 
+                          src={testimonial.content} 
+                          alt="Testimonial screenshot" 
+                          className="w-full h-auto"
+                        />
+                      </div>
+                    </div>
                   )}
                 </CardContent>
               </Card>
             ))}
           </div>
           
-          {/* Add Button (only visible when not authenticated) */}
-          {!isAuthenticated && (
+          {/* Admin Button (visibility controlled by authentication state) */}
+          {isAuthenticated ? (
+            <div className="fixed bottom-8 right-8">
+              <HoverCard>
+                <HoverCardTrigger asChild>
+                  <Button
+                    size="icon"
+                    className="h-14 w-14 rounded-full bg-cv-purple hover:bg-cv-purple-dark shadow-lg" 
+                    onClick={() => {
+                      setIsAuthenticated(false);
+                      toast.success("Exited edit mode");
+                    }}
+                  >
+                    <Check size={24} />
+                  </Button>
+                </HoverCardTrigger>
+                <HoverCardContent className="w-auto p-2">
+                  <span className="text-xs">Exit edit mode</span>
+                </HoverCardContent>
+              </HoverCard>
+            </div>
+          ) : (
             <div className="fixed bottom-8 right-8">
               <HoverCard>
                 <HoverCardTrigger asChild>
@@ -520,6 +466,15 @@ const WallOfLove = () => {
                         <Youtube className="mr-2 h-4 w-4" />
                         Video
                       </Button>
+                      <Button
+                        type="button"
+                        variant={field.value === "image" ? "default" : "outline"}
+                        className={field.value === "image" ? "bg-cv-purple hover:bg-cv-purple-dark" : ""}
+                        onClick={() => form.setValue("type", "image")}
+                      >
+                        <Image className="mr-2 h-4 w-4" />
+                        Image
+                      </Button>
                     </div>
                   </FormItem>
                 )}
@@ -531,12 +486,18 @@ const WallOfLove = () => {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>
-                      {form.watch("type") === "text" ? "Testimonial Text" : "Video Embed Code"}
+                      {form.watch("type") === "text" ? "Testimonial Text" : 
+                        form.watch("type") === "video" ? "Video Embed Code" : 
+                        "Image URL"}
                     </FormLabel>
                     <FormControl>
                       <textarea
                         className="flex min-h-[120px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                        placeholder={form.watch("type") === "text" ? "Enter testimonial text here..." : "Paste video embed code here..."}
+                        placeholder={
+                          form.watch("type") === "text" ? "Enter testimonial text here..." : 
+                          form.watch("type") === "video" ? "Paste video embed code here..." :
+                          "Paste image URL here..."
+                        }
                         {...field}
                       />
                     </FormControl>
