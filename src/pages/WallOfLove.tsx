@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -229,6 +228,11 @@ const WallOfLove = () => {
     toast.success("Testimonial deleted successfully!");
   };
 
+  // Prepare delete handler
+  const confirmDelete = (index: number) => {
+    setDeleteIndex(index);
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
       <div className="flex-grow container mx-auto px-4 py-8 max-w-5xl">
@@ -301,16 +305,14 @@ const WallOfLove = () => {
                       
                       <HoverCard>
                         <HoverCardTrigger asChild>
-                          <AlertDialogTrigger asChild>
-                            <Button 
-                              variant="ghost" 
-                              size="icon" 
-                              className="h-8 w-8 text-gray-400 hover:text-red-500 hover:bg-red-500/10"
-                              onClick={() => setDeleteIndex(index)}
-                            >
-                              <Trash2 size={16} />
-                            </Button>
-                          </AlertDialogTrigger>
+                          <Button 
+                            variant="ghost" 
+                            size="icon" 
+                            className="h-8 w-8 text-gray-400 hover:text-red-500 hover:bg-red-500/10"
+                            onClick={() => confirmDelete(index)}
+                          >
+                            <Trash2 size={16} />
+                          </Button>
                         </HoverCardTrigger>
                         <HoverCardContent className="w-auto p-2">
                           <span className="text-xs">Delete testimonial</span>
@@ -557,7 +559,7 @@ const WallOfLove = () => {
       </Dialog>
       
       {/* Delete Confirmation Dialog */}
-      <AlertDialog open={deleteIndex !== null}>
+      <AlertDialog open={deleteIndex !== null} onOpenChange={(open) => !open && setDeleteIndex(null)}>
         <AlertDialogContent>
           <AlertDialogHeader>
             <AlertDialogTitle>Are you sure?</AlertDialogTitle>
@@ -566,7 +568,7 @@ const WallOfLove = () => {
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel onClick={() => setDeleteIndex(null)}>Cancel</AlertDialogCancel>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
             <AlertDialogAction 
               onClick={() => deleteIndex !== null && handleDelete(deleteIndex)}
               className="bg-red-500 hover:bg-red-600"
