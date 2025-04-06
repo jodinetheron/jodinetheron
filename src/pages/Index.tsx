@@ -19,23 +19,51 @@ import Footer from "@/components/Footer";
 // Mock data for the CV
 const profile = "Experienced technology leader with over 10 years in digital transformation, product development, and technical strategy. Passionate about leveraging technology to solve complex business challenges and drive growth. Strong background in no-code/low-code development, enterprise architecture, and agile methodologies.";
 
+// Key focus items
+const keyFocusItems = [
+  "No-Code Development",
+  "System Architecture",
+  "Process Automation",
+  "Digital Transformation",
+  "Product Management",
+  "Team Leadership"
+];
+
+// Skills data adapted to match the SkillsChart component requirements
 const skills = [
-  { name: "No-Code Development", level: 95 },
-  { name: "Product Management", level: 90 },
-  { name: "Process Optimization", level: 87 },
-  { name: "Systems Integration", level: 85 },
-  { name: "APIs & Webhooks", level: 82 },
-  { name: "User Experience Design", level: 80 },
-  { name: "Technical Leadership", level: 88 },
-  { name: "AI Applications", level: 75 },
+  { name: "No-Code Development", level: 95, years: 5 },
+  { name: "Product Management", level: 90, years: 8 },
+  { name: "Process Optimization", level: 87, years: 10 },
+  { name: "Systems Integration", level: 85, years: 7 },
+  { name: "APIs & Webhooks", level: 82, years: 6 },
+  { name: "User Experience Design", level: 80, years: 5 },
+  { name: "Technical Leadership", level: 88, years: 6 },
+  { name: "AI Applications", level: 75, years: 3 }
 ];
 
+// Technical skills adapted to match the SkillsList component requirements
 const technicalSkills = [
-  "Bubble.io", "Make.com", "Figma", "Zapier", "Retool", "Airtable", "Notion", "Typeform",
-  "SQL", "HTML/CSS", "SEM", "SEO", "Google Analytics", "Jira", "Slack", "Trello", "Asana"
+  { name: "Bubble.io", years: 3 },
+  { name: "Make.com", years: 4 },
+  { name: "Figma", years: 5 },
+  { name: "Zapier", years: 7 },
+  { name: "Retool", years: 2 },
+  { name: "Airtable", years: 4 },
+  { name: "Notion", years: 5 },
+  { name: "Typeform", years: 3 },
+  { name: "SQL", years: 8 },
+  { name: "HTML/CSS", years: 10 },
+  { name: "SEM", years: 5 },
+  { name: "SEO", years: 6 },
+  { name: "Google Analytics", years: 7 },
+  { name: "Jira", years: 5 },
+  { name: "Slack", years: 8 },
+  { name: "Trello", years: 6 },
+  { name: "Asana", years: 4 }
 ];
 
-const experience = [
+// Updated experiences to match ExperienceSection component
+const experiences = [
   {
     title: "Chief Product & Technology Officer",
     company: "Kingdom Growth Engine",
@@ -57,42 +85,52 @@ const experience = [
       "Created documentation systems and process maps for technical and non-technical users",
       "Designed and implemented data management and reporting systems"
     ]
-  },
+  }
 ];
 
-const languages = [
-  { language: "English", proficiency: "Native" },
-  { language: "Afrikaans", proficiency: "Native" },
-];
-
-const education = [
+// Updated education to match EducationSection component
+const educationData = [
   {
     institution: "University of South Africa",
     degree: "Bachelor of Commerce",
     period: "2001 - 2004",
-    details: "Focus on Information Systems and Business Management"
+    details: "Focus on Information Systems and Business Management",
+    location: "Pretoria, South Africa"
   },
   {
     institution: "Certified SAFe® 5 Product Owner/Product Manager",
     degree: "Professional Certification",
     period: "2022",
-    details: "Scaled Agile Framework certification"
+    details: "Scaled Agile Framework certification",
+    location: "Online"
   }
 ];
 
-const references = [
+// Updated languages to match LanguagesSection component
+const languagesData = [
+  "English (Native)",
+  "Afrikaans (Native)"
+];
+
+// Updated references to match ReferencesSection component
+const referencesData = [
   {
     name: "Jane Smith",
-    title: "CEO, TechCorp",
+    title: "CEO",
+    company: "TechCorp",
+    location: "Sydney, Australia",
     contact: "Available upon request"
   },
   {
     name: "John Brown",
-    title: "Director of Product, Innovate Inc.",
+    title: "Director of Product",
+    company: "Innovate Inc.",
+    location: "Melbourne, Australia",
     contact: "Available upon request"
   }
 ];
 
+// Hobbies array (already matches HobbiesSection)
 const hobbies = [
   "AI & Emerging Technologies",
   "Music Production",
@@ -101,12 +139,16 @@ const hobbies = [
   "Scuba Diving"
 ];
 
+// Updated personal details to match PersonalDetails component
 const personalDetails = {
   email: "hey@jodinetheron.com",
   phone: "+61 4XX XXX XXX",
   location: "Perth, Australia",
   website: "jodinetheron.com",
-  linkedin: "linkedin.com/in/jodinetheron"
+  linkedin: "linkedin.com/in/jodinetheron",
+  dob: "1982-01-01",
+  nationality: "South African / Australian",
+  timeZones: ["AWST (UTC+8)"]
 };
 
 const CVpage = () => {
@@ -150,17 +192,17 @@ const CVpage = () => {
           {/* Main Content - 2/3 width on desktop */}
           <div className="md:col-span-2 space-y-6">
             <ProfileSection profile={profile} />
-            <KeyFocusSection />
-            <ExperienceSection experience={experience} />
-            <EducationSection education={education} />
+            <KeyFocusSection items={keyFocusItems} />
+            <ExperienceSection experiences={experiences} />
+            <EducationSection education={educationData} />
           </div>
           
           {/* Sidebar - 1/3 width on desktop */}
           <div className="space-y-6">
             <SkillsChart skills={skills} />
             <SkillsList skills={technicalSkills} />
-            <LanguagesSection languages={languages} />
-            <ReferencesSection references={references} />
+            <LanguagesSection languages={languagesData} />
+            <ReferencesSection references={referencesData} />
             <HobbiesSection hobbies={hobbies} />
             <PersonalDetails details={personalDetails} />
           </div>
