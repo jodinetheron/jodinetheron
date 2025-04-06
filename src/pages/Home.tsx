@@ -106,11 +106,11 @@ const Home = () => {
 
             <Card className="group col-span-1 md:col-span-2 overflow-hidden transition-all bg-gradient-to-r from-cv-purple/10 to-cv-blue/10 border border-cv-purple/20 hover:border-cv-purple/40 hover:shadow-[0_0_15px_rgba(155,135,245,0.3)]">
               <Link 
-                to="/cv"
+                to="/experience"
                 className="p-6 flex items-center justify-between"
               >
                 <div>
-                  <h2 className="text-xl font-bold gradient-text">My CV</h2>
+                  <h2 className="text-xl font-bold gradient-text">My Experience</h2>
                   <p className="text-gray-300 text-sm mt-1">View my professional experience and qualifications</p>
                 </div>
                 <FileText className="h-6 w-6 text-cv-purple" />
