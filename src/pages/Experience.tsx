@@ -1,4 +1,6 @@
 
+import React from 'react';
+import profilePic from '@/assets/Jodine-Theron-profile.png';
 import { useState } from "react";
 import { Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -36,7 +38,11 @@ const Experience = () => {
         "Designed and implemented automated client onboarding systems, slashing manual tasks by 80% and saving an average of 15 hours per new client integration.",
         "Developed an AI-powered workflow for automated, unique content creation, significantly enhancing clients' thought leadership and authority."
       ],
-      keySkills: []
+      keySkills: [
+        "Client Onboarding Automation",
+        "Process Automation",
+        "AI-Enhanced Business Operations"
+      ]
     },
     {
       title: "Chief Product and Technology Officer (CPTO)",
@@ -89,6 +95,132 @@ const Experience = () => {
         "Cross-Functional Team Leadership"
       ],
       promotion: "Promoted to Chief Product and Technology Officer (CPTO) within 3 months, recognizing strong performance in driving product strategy and technical execution."
+    },
+    {
+      title: "Jesus Follower",
+      company: "The Kingdom of God",
+      location: "Heaven and Earth (Hybrid)",
+      period: "Aug 2012",
+      description: "♥ For God so loved the world, that he gave his only Son, that whoever believes in him should not perish but have eternal life. (John 3:16)",
+    },
+    {
+      title: "Business Coach, Strategist and Marketer",
+      company: "Kingdom Copilot",
+      location: "Australia (Remote)",
+      period: "May 2017 - Mar 2024",
+      description: "Empowered global clients for 7 years through independent coaching, strategic consulting, and comprehensive digital marketing services.",
+      keyFocus: [
+        "Provided strategic business coaching, market analysis, and brand identity development to guide client growth.",
+        "Designed and executed multi-channel digital marketing campaigns (incl. Facebook Ads, SEO, Email) and automated sales funnels for lead generation.",
+        "Developed client websites (WordPress), streamlined business processes through documentation, and supported system implementations (leveraging CRM/ERP experience)."
+      ],
+      keySkills: [
+        "Business Coaching & Strategy",
+        "Digital Marketing & Lead Generation",
+        "Client Project & Relationship Management"
+      ]
+    },
+    {
+      title: "Emergency Management Trainer",
+      company: "Emergency Management Trainer",
+      location: "Perth, Australia (On-site)",
+      period: "Sep 2016 - Mar 2017",
+      description: "Developed and delivered critical emergency preparedness training programs while coordinating project elements for a major hospital transition and commissioning.",
+      keyFocus: [
+        "Designed and delivered comprehensive emergency preparedness training (inductions, warden courses, practical drills) for up to 50 participants daily.",
+        "Managed project timelines, coordinated emergency drills, and developed procedural documentation (Visio diagrams, reports) supporting the hospital relocation.",
+        "Contributed to safety system integrity by identifying procedural/plan inconsistencies, auditing fire systems, and coordinating safety equipment rollouts."
+      ],
+      keySkills: [
+        "Training Program Development & Delivery",
+        "Project Coordination & Management",
+        "Emergency Procedures & Safety Systems"
+      ]
+    },
+    {
+      title: "Consultant",
+      company: "Pakfront Pty Ltd",
+      location: "Australia (On-site)",
+      period: "Dec 2014 - Feb 2017",
+      description: "Executed comprehensive digital marketing campaigns and developed supporting operational assets including automated lead generation systems for clients.",
+      keyFocus: [
+        "Managed multi-platform digital marketing campaigns (social media focus) and developed tailored strategic marketing/sales plans.",
+        "Established automated sales funnels and lead generation systems to drive client acquisition efficiently.",
+        "Created brand designs, procedural documentation (templates, policies), and managed tender/license application packages."
+      ],
+      keySkills: [
+        "Digital Marketing & Strategy",
+        "Lead Generation & Sales Automation",
+        "Brand Development & Business Documentation"
+      ]
+    },
+    {
+      title: "Accounts Payable Officer",
+      company: "Sadliers Logistics",
+      location: "Australia (On-site)",
+      period: "Jan 2016 - Feb 2016",
+      description: "Managed end-to-end accounts payable processes, focusing on accurate subcontractor job costing and timely payment execution within a logistics environment.",
+      keyFocus: [
+        "Processed and costed subcontractor jobs (metro/regional) using Translogix, ensuring accurate data entry and validation (fuel, charges).",
+        "Managed full-cycle accounts payable including invoice/PO creation, GL transactions, and weekly EFT payment runs (SPA processing).",
+        "Performed financial administration tasks such as updating subcontractor rates, adjusting accruals, and distributing payment advices."
+      ],
+      keySkills: [
+        "Accounts Payable Processing",
+        "Financial Data Entry & Verification",
+        "Attention to Detail & Accuracy"
+      ]
+    },
+    {
+      title: "Project Administrator",
+      company: "Tutt Bryant Heavy Lift & Shift",
+      location: "Australia (On-site)",
+      period: "Nov 2012 - Dec 2015",
+      description: "Provided comprehensive project administration for multi-million dollar per month, high-end heavy lift projects within the mining and civil construction sectors, coordinating across multiple functions and contributing to key system implementations.",
+      keyFocus: [
+        "Led the rollout of a SharePoint-based document control system across all Australian branches and contributed significantly to a new ERP system implementation supporting large-scale projects.",
+        "Managed core project financial administration including invoicing, purchase orders, AP/AR processing, progress billing, and timesheet/payroll entry for complex, high-value operations.",
+        "Coordinated essential project support functions: job creation/closure, record keeping (training, OHS), travel/accommodation logistics, and tender package review in a high-pressure environment."
+      ],
+      keySkills: [
+        "Project Administration & Coordination (Large-Scale Construction)",
+        "System Implementation Support (ERP & SharePoint/Document Control)",
+        "Financial & Operational Administration (High-Value Projects)"
+      ]
+    },
+    {
+      title: "Project, HR and Contract Administrator",
+      company: "Various Companies",
+      location: "Australia (On-site)",
+      period: "May 2017 - Mar 2024",
+      description: "Provided multifaceted administrative support across diverse sectors (mining, construction, health, corporate), driving efficiency in project delivery, HR processes, and contract management.",
+      keyFocus: [
+        "Coordinated logistics and scheduling for over 60 concurrent live projects, managing timelines and assisting with project management system integrations and testing.",
+        "Managed end-to-end contract administration, including subcontractor/vendor liaison, negotiation support, procurement, and expenditure tracking.",
+        "Delivered comprehensive HR administrative support encompassing recruitment, onboarding, training coordination, payroll processing, and HSE compliance."
+      ],
+      keySkills: [
+        "Cross-Functional Administration (Project, HR, Contracts)",
+        "Project Coordination & Logistics",
+        "Contract & Vendor Management"
+      ]
+    },
+    {
+      title: "Marketing Consultant and Branch Administration Manager",
+      company: "Various Companies",
+      location: "Australia (Hybrid)",
+      period: "May 2017 - Mar 2024",
+      description: "Held diverse, concurrent roles over six years, developing comprehensive expertise in marketing, lead generation, branch/site administration, and team leadership across various environments (including remote site work, Fly-in Fly-out--FIFO).",
+      keyFocus: [
+        "Spearheaded marketing/advertising campaigns, managed lead generation processes, and designed websites to drive business growth.",
+        "Managed broad administrative functions including branch operations, HR tasks (payroll, compliance, policy), audits, and travel/logistics coordination.",
+        "Provided site administration support (FIFO) and team leadership, including training new associates and ensuring smooth operations."
+      ],
+      keySkills: [
+        "Marketing Strategy & Execution",
+        "Operations & Administration Management",
+        "Team Leadership & Training"
+      ]
     }
   ];
 
@@ -104,8 +236,14 @@ const Experience = () => {
     linkedin: "linkedin.com/in/jodinetheron"
   };
 
-  // Education
+  // Education and Certificates
   const education = [
+    {
+      institution: "The Fletcher Method",
+      location: "Online",
+      degree: "Growthworks Certified Marketing Consultant",
+      period: "Apr 2024"
+    },
     {
       institution: "Swinburne University of Technology",
       location: "Australia",
@@ -202,7 +340,7 @@ const Experience = () => {
             <div className="flex flex-col md:flex-row items-center gap-5">
               <div className="w-28 h-28 rounded-full overflow-hidden border-2 border-cv-purple/50 flex-shrink-0">
                 <img 
-                  src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=300&h=300" 
+                  src={profilePic} 
                   alt="Jodine Theron" 
                   className="w-full h-full object-cover"
                 />
@@ -360,7 +498,7 @@ const Experience = () => {
 
           {/* Education */}
           <section>
-            <h2 className="text-2xl font-bold gradient-text mb-4">Education</h2>
+            <h2 className="text-2xl font-bold gradient-text mb-4">Education and Certificates</h2>
             <div className="bg-card/30 backdrop-blur-sm border border-cv-purple/20 rounded-lg p-6">
               <div className="space-y-4">
                 {education.map((edu, index) => (
@@ -472,6 +610,38 @@ const Experience = () => {
             color: #333 !important;
             -webkit-text-fill-color: #333 !important;
           }
+            /* Target specific white text elements */
+  .text-white {
+    color: black !important;
+  }
+
+  /* Ensure specific gray text becomes black/dark gray */
+  .text-gray-200, .text-gray-300, .text-gray-400 {
+     color: #333 !important;
+  }
+
+  /* Try to preserve purple text if explicitly set */
+  /* Add other purple classes if needed */
+  .text-cv-purple {
+     color: #9B87F5 !important; /* Or your actual purple hex code */
+     -webkit-print-color-adjust: exact !important;
+     print-color-adjust: exact !important;
+  }
+
+  /* Ensure backgrounds of specific elements are white or transparent */
+   .bg-card\\/30, .bg-cv-dark, .bg-cv-purple\\/20, .bg-gradient-to-r {
+     background: white !important; /* Or transparent */
+   }
+
+   /* Ensure borders are visible but not colored if needed */
+   .border-cv-purple\\/20, .border-cv-purple\\/30, .border-muted\\/20 {
+      border-color: #ccc !important; /* Light gray border */
+   }
+
+   /* Adjust bar chart colors for print */
+   .recharts-cell[fill="#9B87F5"], .recharts-cell[fill="#7E69AB"] {
+      fill: #666 !important; /* Darker gray for bars */
+   }
         }
       `}} />
     </div>

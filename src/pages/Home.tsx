@@ -1,4 +1,6 @@
 
+import React from 'react';
+import profilePic from '@/assets/Jodine-Theron-profile.png';
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -22,7 +24,7 @@ const Home = () => {
           <div className="flex flex-col items-center text-center space-y-4">
             <Avatar className="w-32 h-32 border-2 border-cv-purple/50">
               <AvatarImage 
-                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=300&h=300" 
+                src={profilePic} 
                 alt="Jodine Theron"
                 onLoad={() => setImageLoaded(true)}
                 className={`transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
